@@ -7,7 +7,7 @@ LEFT = 180
 RIGHT = 0
 
 
-class Snake():
+class Snake:
 
     def __init__(self):
         self.snake = []
@@ -21,6 +21,13 @@ class Snake():
             snake_segment.color("white")
             snake_segment.goto(-20 * i, 0)
             self.snake.append(snake_segment)
+
+    def add_segment(self):
+        snake_segment = Turtle("square")
+        snake_segment.penup()
+        snake_segment.color("white")
+        snake_segment.goto(self.snake[-1].position())
+        self.snake.append(snake_segment)
 
     def move(self):
         for seg_num in range(len(self.snake) - 1, 0, -1):
